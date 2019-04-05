@@ -1,0 +1,8 @@
+applications:
+- path: ./target/convert-0.0.1-SNAPSHOT.jar
+  memory: 256M
+  instances: 1
+  domain: eu-gb.mybluemix.net
+  name: CurrencyConverter-jagmeet-new
+  buildpack: java_buildpack
+  host: CurrencyConverter-jag
