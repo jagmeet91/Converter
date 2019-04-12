@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.fasterxml.jackson.core.JsonParseException;
@@ -70,5 +71,12 @@ public String getconverter(@ModelAttribute("formPOJO") FormPOJO fp,Model model) 
 	return "Home";
 
 }
+@GetMapping("/test")
+@ResponseBody
+public String gettest() {
+	
+	String str = "{ \"name\":\"jagmeet\",\"age\":90}";
+	return str;
 
+}
 }
