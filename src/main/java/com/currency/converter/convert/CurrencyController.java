@@ -39,7 +39,7 @@ public class CurrencyController {
 public String getrupee(Model model) throws JsonParseException, JsonMappingException, MalformedURLException, IOException{
 	System.out.println("hi");
 	model.addAttribute("formPOJO",new FormPOJO());
-
+	model.addAttribute("formValue",0);
 	model.addAttribute("answer",0);
 	return "Home";
 

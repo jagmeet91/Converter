@@ -31,7 +31,7 @@
 
 <br><br><br>
 
-	<form:input type="text" path="fromValue"/>
+	<form:input type="text" path="fromValue" value="${formValue}"/>
 	
 
 	<pre></pre>
