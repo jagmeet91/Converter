@@ -37,7 +37,7 @@ public class RestController {
 	}
 	
 	@GetMapping("/get_users/{userId}")
-	public ResponseEntity<?> getUserWithId(@PathVariable int id) {
+	public ResponseEntity<?> getUserWithId(@PathVariable("userId") int id) {
 		
 		List<UserPOJO> allUsers = new ArrayList<UserPOJO>();
 		
