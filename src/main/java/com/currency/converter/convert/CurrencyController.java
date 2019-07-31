@@ -71,12 +71,5 @@ public String getconverter(@ModelAttribute("formPOJO") FormPOJO fp,Model model) 
 	return "Home";
 
 }
-@GetMapping("/test")
-@ResponseBody
-public String gettest() {
-	
-	String str = "{ \"name\":\"jagmeet\",\"age\":90}";
-	return str;
 
-}
 }
