@@ -7,6 +7,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @org.springframework.web.bind.annotation.RestController
@@ -15,24 +17,25 @@ public class RestController {
 	
 	UserPOJO user1;
 	UserPOJO user2;
+	UserPOJO user3;
+	List<UserPOJO> allUsers = new ArrayList<UserPOJO>();
 	public RestController() {
 		// TODO Auto-generated constructor stub
 		
-	user1	 = new UserPOJO(1,"Harpreet","26","she is my sister doing it for her");
-	user2	 = new UserPOJO(2,"Jagmeet","22","This is me");
-		
+	user1	 = new UserPOJO(1,"Vishakha","21","New member of our Team");
+	user2	 = new UserPOJO(2,"Gaurangi","21","New member of our Team");
+	user3	 = new UserPOJO(3,"Shubham","21", "New member of our Team");
+	allUsers.add(user1);
+	allUsers.add(user2);
+	allUsers.add(user3);
+
 	}
 	
 	
 	
 	@GetMapping("/get_users")
 	public List<UserPOJO> getAllUser() {
-		
-		List<UserPOJO> allUsers = new ArrayList<UserPOJO>();
-		
-			allUsers.add(user1);
-			allUsers.add(user2);
-	
+
 		return allUsers;
 	}
 	
@@ -52,8 +55,30 @@ public class RestController {
 					return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 				}
 			}
-		
-		
+	}
+			@PostMapping("/insert_user")
+			public ResponseEntity<?> insertUser(@RequestBody UserPOJO user) {
+				
+				
+					if(user.getId()==2) {
+					 
+					for(UserPOJO u : allUsers) {
+					
+						if(u.getId()==2) {
+							u.setAge(user.getAge());
+							u.setDescription(user.getDescription());
+							u.setName(user.getName());
+											}
+					}
+						
+					return new ResponseEntity<List<UserPOJO>>(allUsers,HttpStatus.OK);
+	
+					}	else {
+						
+						return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+			
+			}
+				
 		
 	}
 	

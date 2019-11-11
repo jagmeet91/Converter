@@ -24,8 +24,8 @@ public class Config extends WebSecurityConfigurerAdapter
             throws Exception
     {
         auth.inMemoryAuthentication()
-            .withUser("Harpreet")
-            .password("{noop}harpreet")
+            .withUser("Shubham")
+            .password("{noop}shubham")
             .roles("USER");
     }
 }
